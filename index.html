@@ -69,7 +69,7 @@
     position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 360px; justify-self: end;
     border-radius: 24px; overflow: hidden; isolation: isolate;
     background: linear-gradient(155deg, #c8102e 0%, #7a0a1d 55%, #0b1a30 100%);
-    background-size: cover; background-position: center;
+    background-size: cover; background-position: center 35%;
     box-shadow: 0 30px 60px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.12);
   }
   .panel .big {
@@ -113,6 +113,9 @@
     background-size: cover; background-position: center;
   }
 
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 30%; border-radius: 16px; display: block; box-shadow: 0 6px 18px rgba(15,35,64,.12); }
+  .gallery img.wide { grid-column: 1 / -1; aspect-ratio: 4 / 3; object-position: center; }
   /* Baseball card */
   .bcard { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 18px rgba(15,35,64,.08); }
   .bcard .top { background: var(--navy); color: #fff; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
@@ -157,8 +160,7 @@
   @media (max-width: 760px) {
     nav .links { display: none; }
     .grid-2, .hero-grid { grid-template-columns: 1fr; }
-    .panel { justify-self: stretch; max-width: none; aspect-ratio: 5 / 4; }
-    .panel .big { font-size: 11rem; }
+    .panel { justify-self: center; max-width: 420px; }
     header.hero { padding: 40px 0 72px; }
     .stats b { font-size: 1.15rem; }
     .photo { aspect-ratio: 4/3; }
@@ -211,10 +213,7 @@
         <a class="btn ghost" href="#will">Meet Will</a>
       </div>
     </div>
-    <div class="panel" id="heroPanel">
-      <!-- To add a photo: give this div style="background-image:url('will.jpg')" -->
-      <div class="big" aria-hidden="true">17</div>
-      <div class="cam"><svg class="ico" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg>Photo of Will goes here</div>
+    <div class="panel" id="heroPanel" style="background-image:url('images/will-stadium-white.jpg');background-size:auto 150%;background-position:44% 62%" role="img" aria-label="Will in his white Pioneers #17 jersey at the ballpark">
       <div class="info">
         <div class="pname">Will Gong</div>
         <div class="meta"><span>#17</span><span>2B · P</span><span>Philadelphia</span></div>
@@ -260,7 +259,11 @@
         </div>
       </div>
     </div>
-    <div class="photo"><div><svg class="ico" style="width:32px;height:32px" viewBox="0 0 24 24"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg><br>Photo of Will goes here<br><small>(an action shot on the mound or at second works great)</small></div></div>
+    <div class="gallery">
+      <img src="images/will-red-jersey.jpg" alt="Will in his red Pioneers #17 jersey" loading="lazy">
+      <img src="images/will-glove.jpg" alt="Will in his navy jersey with his glove" loading="lazy">
+      <img class="wide" src="images/will-stadium-navy.jpg" alt="Will at the ballpark in his navy #17 jersey" loading="lazy">
+    </div>
   </div>
 </section>
 
